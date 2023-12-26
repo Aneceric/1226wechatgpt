@@ -13,7 +13,7 @@ from plugins import *
 def sigterm_handler_wrap(_signo):
     old_handler = signal.getsignal(_signo)
 
-    def func(_signo, _stack_frame):
+    def func(_signo, _stack_frame):                                        
         logger.info("signal {} received, exiting...".format(_signo))
         conf().save_user_datas()
         if callable(old_handler):  #  check old_handler
